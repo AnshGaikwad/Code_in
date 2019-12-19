@@ -1,0 +1,77 @@
+# Google Code-in
+
+# Reading and Writing CSV data - R Project for Statistical Computing
+
+# Task-1
+
+# Getting current directory location
+
+print(getwd())
+
+# Reading a csv file downloaded from kaggle
+
+dat <- read.csv("Pokemon.csv")
+
+# Task-2
+
+# Printing first few members of data 
+
+head(data, n=5) 
+
+# Analyzing the data
+
+data <- read.csv("Pokemon.csv")
+
+print(is.data.frame(data))
+print(ncol(data))
+print(nrow(data))
+
+#Printing the pokemon with maximum health value
+
+data <- read.csv("Pokemon.csv")
+
+health <- max(data$HP)
+print(health)
+
+# Task-3
+
+# Creating a dataframe
+
+Name <-  c("Aakanksha", "Aarohi", "Ansh", "Nisha", "Ritu", "Rohit", "Sarvesh", "Varun", "Prashanth")
+Age <- c(19,21,17,13,19,18,22,25,30)
+Gender <- c('F', 'F', 'M', 'F', 'F', 'M', 'M', 'M', 'M')
+
+students <- data.frame(Name,Age,Gender)
+
+print(students)
+
+# Task-4
+
+# Adding a new column height in the existing data frame
+
+students["Height(cm)"] <- c(164,162,175,158,173,172,179,177,166)
+print(students)
+
+# Adding a new row in the existing data frame
+
+new_row <- c("Arshad", 27, 'M', 181)
+
+options(stringsAsFactors = FALSE)
+
+students <- rbind(students, new_row)
+print(students)
+
+# Task-5 
+
+# Exporting our dataframe
+
+write.csv(students,"students.csv")
+finaldata <- read.csv("students.csv")
+print(finaldata)
+
+# Task-6
+
+# Reading a CSV file from the internet directly into R without downloading
+
+onlinedata <- read.csv("http://databank.worldbank.org/data/download/GDP.csv")
+print(onlinedata)
